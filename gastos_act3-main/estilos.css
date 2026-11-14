@@ -1,0 +1,437 @@
+:root {
+    --fondo: #f3f5f2;
+    --panel: #ffffff;
+    --texto: #1f2a24;
+    --suave: #5d6b63;
+    --borde: #d8dfd9;
+    --acento: #1f7a5a;
+    --acento-claro: #e3f2ec;
+    --positivo: #1f7a5a;
+    --negativo: #b3402e;
+    --error-fondo: #fbe9e6;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.45;
+}
+
+.cabecera {
+    padding: 20px 16px 16px;
+    background: var(--acento);
+    color: #fff;
+}
+
+.cabecera .marca {
+    margin: 0;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+
+.cabecera h1 {
+    margin: 2px 0 0;
+    font-size: 1.6rem;
+}
+
+main {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+h2 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+}
+
+h3 {
+    margin: 14px 0 8px;
+    font-size: 0.95rem;
+    color: var(--suave);
+}
+
+.oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+.mensaje {
+    min-height: 1.6em;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+}
+
+.mensaje.ok {
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: var(--acento-claro);
+    color: var(--acento);
+}
+
+.mensaje.error {
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: var(--error-fondo);
+    color: var(--negativo);
+}
+
+/* Resumen en tarjetas */
+.resumen {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
+    gap: 12px;
+    margin: 0;
+}
+
+.resumen div {
+    padding: 12px 14px;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    background: var(--panel);
+}
+
+.resumen dt {
+    font-size: 0.8rem;
+    color: var(--suave);
+}
+
+.resumen dd {
+    margin: 2px 0 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.columnas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 16px;
+}
+
+.panel {
+    padding: 16px;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    background: var(--panel);
+}
+
+/* Listas de personas y de gastos */
+.lista {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lista li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--borde);
+}
+
+.lista li:last-child {
+    border-bottom: none;
+}
+
+.lista .texto {
+    flex: 1;
+    min-width: 0;
+}
+
+.lista .detalle {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--suave);
+    overflow-wrap: anywhere;
+}
+
+.lista .cantidad {
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.cantidad.positivo {
+    color: var(--positivo);
+}
+
+.cantidad.negativo {
+    color: var(--negativo);
+}
+
+.lista .vacia {
+    color: var(--suave);
+}
+
+.liquidacion {
+    margin: 0;
+    padding-left: 1.4em;
+}
+
+.liquidacion li {
+    padding: 3px 0;
+}
+
+.por-categoria {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4px 12px;
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+}
+
+.por-categoria dd {
+    margin: 0;
+    text-align: right;
+}
+
+/* Formularios */
+.formulario,
+.filtro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.formulario {
+    margin-top: 12px;
+    padding-top: 4px;
+    border-top: 1px dashed var(--borde);
+}
+
+.formulario h3 {
+    flex-basis: 100%;
+    margin-bottom: 0;
+}
+
+.filtro {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    background: var(--fondo);
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.85rem;
+    color: var(--suave);
+}
+
+input,
+select,
+button {
+    font: inherit;
+}
+
+input,
+select {
+    min-width: 0;
+    padding: 6px 8px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    background: #fff;
+    color: var(--texto);
+}
+
+fieldset {
+    flex-basis: 100%;
+    margin: 0;
+    padding: 8px 10px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+}
+
+legend {
+    font-size: 0.85rem;
+    color: var(--suave);
+}
+
+.participantes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+}
+
+.participantes label {
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    color: var(--texto);
+}
+
+.participantes input[type="number"] {
+    width: 4em;
+}
+
+button {
+    padding: 7px 14px;
+    border: 1px solid var(--acento);
+    border-radius: 6px;
+    background: var(--acento);
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover,
+button:focus-visible {
+    filter: brightness(1.1);
+}
+
+button.secundario,
+.lista button {
+    background: transparent;
+    color: var(--acento);
+}
+
+.lista button {
+    padding: 3px 10px;
+    font-size: 0.85rem;
+}
+
+:focus-visible {
+    outline: 2px solid var(--acento);
+    outline-offset: 2px;
+}
+
+/* Tabla por categorías */
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+}
+
+th,
+td {
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--borde);
+    text-align: right;
+    white-space: nowrap;
+}
+
+th:first-child,
+td:first-child {
+    text-align: left;
+}
+
+thead th {
+    font-size: 0.85rem;
+    color: var(--suave);
+}
+
+/* Pruebas */
+.pruebas {
+    padding: 16px;
+    border-radius: 8px;
+    background: #fff;
+    border: 1px solid var(--borde);
+}
+
+.pruebas ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: prueba;
+}
+
+.pruebas li {
+    margin: 4px 0;
+    padding-left: 2.4em;
+    text-indent: -2.4em;
+}
+
+.pruebas li:not(.grupo)::before {
+    counter-increment: prueba;
+    content: counter(prueba) ".";
+    display: inline-block;
+    width: 2.4em;
+    padding-right: 0.4em;
+    text-indent: 0;
+    text-align: right;
+    color: var(--suave);
+}
+
+.pruebas li.grupo {
+    margin: 14px 0 4px;
+    padding-left: 0;
+    text-indent: 0;
+    font-weight: 700;
+}
+
+.pruebas .estado {
+    font-weight: 700;
+}
+
+.pruebas li.bien .estado {
+    color: var(--positivo);
+}
+
+.pruebas li.mal .estado {
+    color: var(--negativo);
+}
+
+.pruebas pre {
+    margin: 4px 0;
+    padding: 6px 8px;
+    border-radius: 4px;
+    background: var(--fondo);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-size: 0.8rem;
+    text-indent: 0;
+}
+
+/* Calculadora y personas sin pagar */
+.formulario.calculo {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+.cuotas {
+    margin-top: 12px;
+}
+
+.historial {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.historial li {
+    padding: 2px 0;
+}
+
+.suma {
+    margin: 6px 0 0;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.sin-pagar {
+    margin: 0;
+}

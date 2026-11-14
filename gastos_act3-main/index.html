@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gastos compartidos</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header class="cabecera">
+        <p class="marca">Gastos compartidos</p>
+        <h1 id="nombre-grupo">Grupo</h1>
+    </header>
+
+    <main>
+        <p id="mensaje" class="mensaje" role="status"></p>
+
+        <section aria-labelledby="titulo-resumen">
+            <h2 id="titulo-resumen" class="oculto">Resumen</h2>
+            <dl id="resumen" class="resumen"></dl>
+        </section>
+
+        <div class="columnas">
+            <section class="panel" aria-labelledby="titulo-personas">
+                <h2 id="titulo-personas">Personas</h2>
+                <ul id="personas" class="lista"></ul>
+                <form id="form-persona" class="formulario">
+                    <h3>Añadir persona</h3>
+                    <label>Nombre <input name="nombre" autocomplete="off"></label>
+                    <label>Email <input name="email" autocomplete="off"></label>
+                    <button type="submit">Añadir persona</button>
+                </form>
+            </section>
+
+            <section class="panel" aria-labelledby="titulo-liquidacion">
+                <h2 id="titulo-liquidacion">Cómo saldar las cuentas</h2>
+                <ol id="liquidacion" class="liquidacion"></ol>
+                <h3>Por categoría</h3>
+                <dl id="por-categoria" class="por-categoria"></dl>
+                <h3>No han pagado nada</h3>
+                <p id="sin-pagar" class="sin-pagar"></p>
+            </section>
+        </div>
+
+        <section class="panel" aria-labelledby="titulo-gastos">
+            <h2 id="titulo-gastos">Gastos</h2>
+            <form id="form-filtro" class="filtro">
+                <label>Persona
+                    <select name="persona"><option value="">Todas</option></select>
+                </label>
+                <label>Categoría
+                    <select name="categoria"><option value="">Todas</option></select>
+                </label>
+                <label>Desde <input type="date" name="desde"></label>
+                <label>Hasta <input type="date" name="hasta"></label>
+                <button type="submit">Filtrar</button>
+                <button type="button" id="quitar-filtro" class="secundario">
+                    Quitar filtro
+                </button>
+            </form>
+            <ul id="gastos" class="lista"></ul>
+
+            <form id="form-gasto" class="formulario formulario-gasto">
+                <h3>Añadir gasto</h3>
+                <label>Concepto <input name="concepto" autocomplete="off"></label>
+                <label>Importe (€)
+                    <input name="importe" placeholder="12,50"
+                           inputmode="decimal" autocomplete="off">
+                </label>
+                <label>Pagado por <select name="pagador"></select></label>
+                <label>Categoría <select name="categoria"></select></label>
+                <label>Fecha <input type="date" name="fecha"></label>
+                <fieldset>
+                    <legend>Se reparte a partes iguales entre</legend>
+                    <div id="participantes" class="participantes"></div>
+                </fieldset>
+                <button type="submit">Añadir gasto</button>
+            </form>
+        </section>
+
+        <section class="panel" aria-labelledby="titulo-tabla">
+            <h2 id="titulo-tabla">Lo que le corresponde a cada persona</h2>
+            <div class="tabla-contenedor">
+                <table id="tabla"></table>
+            </div>
+        </section>
+
+        <section class="panel" aria-labelledby="titulo-calculadora">
+            <h2 id="titulo-calculadora">Calculadora de cuotas</h2>
+            <form id="form-calculo" class="formulario calculo">
+                <label>Importe (€)
+                    <input name="importe" placeholder="100,00"
+                           inputmode="decimal" autocomplete="off">
+                </label>
+                <label>Partes de cada persona
+                    <input name="partes" placeholder="1 2 1" autocomplete="off">
+                </label>
+                <button type="submit">Calcular</button>
+            </form>
+            <ol id="cuotas" class="liquidacion cuotas"></ol>
+            <p id="suma-cuotas" class="suma"></p>
+            <h3>Cálculos hechos</h3>
+            <ul id="historial" class="historial"></ul>
+        </section>
+
+        <section class="pruebas" aria-labelledby="titulo-pruebas">
+            <h2 id="titulo-pruebas">Pruebas <span id="resumen-pruebas"></span></h2>
+            <ol id="lista-pruebas"></ol>
+        </section>
+    </main>
+
+    <script src="interfaz.js"></script>
+    <script src="datos.js"></script>
+    <script src="utilidades.js"></script>
+    <script src="cuentas.js"></script>
+    <script src="liquidacion.js"></script>
+    <script src="viaje.js"></script>
+    <script src="pruebas.js"></script>
+    <script src="vista.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
